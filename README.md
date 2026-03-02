@@ -1,7 +1,7 @@
 # Grid-Scale BESS Pipeline Intelligence
 ### CAISO & AEMO Interconnection Queue Analysis | 2024–2035
 
-📊 **[View the Interactive Dashboard live on Tableau Public →](your-link-here)**
+📊 **[View the Interactive Dashboard live on Tableau Public →](https://public.tableau.com/app/profile/sarthak.rokade/viz/BESSTracker/Dashboard3?publish=yes&showOnboarding=true)**
 
 ![Dashboard Snapshot](replace_with_your_image_link_here.png)
 
