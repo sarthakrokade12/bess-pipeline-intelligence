@@ -30,7 +30,7 @@ CAISO and AEMO publish interconnection queue data in entirely different formats,
 | AEMO Generator Information | Australia | [Download AEMO Jan 2026 (.xlsx)](https://www.aemo.com.au/-/media/files/electricity/nem/planning_and_forecasting/generation_information/2026/nem-generation-information-jan-2026.xlsx?rev=1f6bccf827284f9fb6d6f3ae56ed3fe9&sc_lang=en) |
 
 ## ⚙️ Core Pipeline Logic & Engineering Highlights
-The Python ETL script (`clean_data.py`) standardizes highly inconsistent regional grid data. Key engineering features include:
+The Python ETL script (`Global BESS Tracker.py`) standardizes highly inconsistent regional grid data. Key engineering features include:
 * **Schema Sanitization:** Implemented programmatic column stripping prior to dataset concatenation to resolve aggressive schema mismatches (e.g., hidden trailing spaces in CAISO headers causing `NaT` datetime dropouts).
 * **Technology Parsing:** Engineered a classification function to accurately isolate BESS capacity from complex Hybrid (Solar+BESS and Wind+BESS) project strings.
 * **Developer Obfuscation Handling:** Built conditional logic to extract explicit `Site Owner` data for the transparent Australian market, while standardizing anonymous LLCs in the US market as "Undisclosed (CAISO Policy)" to maintain data integrity.
