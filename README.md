@@ -3,7 +3,11 @@
 
 📊 **[View the Interactive Dashboard live on Tableau Public →](https://public.tableau.com/app/profile/sarthak.rokade/viz/BESSTracker/Dashboard3?publish=yes&showOnboarding=true)**
 
-![Dashboard Snapshot](replace_with_your_image_link_here.png)
+Dashboard Snapshot : 
+
+<img width="1386" height="678" alt="Screenshot 2026-03-02 at 3 45 30 AM" src="https://github.com/user-attachments/assets/8687c4f3-e341-4288-b33b-2e449e526a2f" />
+
+
 
 ## 🌐 Overview
 An automated data pipeline that ingests, normalizes, and structures battery storage project data from two heterogeneous sources—CAISO's interconnection queue and AEMO's project register—into a unified, analytics-ready dataset powering a Tableau market intelligence dashboard.
