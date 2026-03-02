@@ -40,6 +40,24 @@ The Python ETL script (`Global BESS Tracker.py`) standardizes highly inconsisten
 * **Developer Obfuscation Handling:** Built conditional logic to extract explicit `Site Owner` data for the transparent Australian market, while standardizing anonymous LLCs in the US market as "Undisclosed (CAISO Policy)" to maintain data integrity.
 * **Cycle Time Math:** Isolated datetime calculations (Queue Date to COD) to generate a `Dev_Cycle_Years` metric, quantifying the true time-in-queue bottleneck for developers.
 
+### 🔄 Categorical Data Normalization (Status Mapping)
+One of the core architectural challenges was aligning the heterogeneous project lifecycles used by CAISO and AEMO. I engineered a mapping logic to normalize these into four high-level business categories, enabling unified pipeline health tracking.
+
+| Source Status (AEMO) | Target Status (Standardized) | Architectural Logic |
+| :--- | :--- | :--- |
+| **Publicly Announced** | Early Stage | Initial disclosure; pre-study phase. |
+| **Anticipated / Proposed** | Proposed | Active in the interconnection queue. |
+| **Committed / Committed\*** | Approved/Committed | Financial close or study completion reached. |
+| **In Commissioning** | In Construction | Physical asset deployment or testing phase. |
+| **In Service** | Operational | Grid-connected; revenue-generating. |
+| **Announced Withdrawal** | Withdrawn | Project removed from the queue/pipeline. |
+
+### Data Modeling Highlights
+* **Schema Normalization:** Instead of simply joining tables, I defined a target schema that forces identical data types and naming conventions across the United States and Australia datasets. This architecture allows for a seamless "Zero-Logic" union within the visualization layer.
+* **Feature Engineering:** The `Dev_Cycle_Years` field was modeled specifically to answer executive-level questions regarding project lead times and grid interconnection bottlenecks.
+* **Categorical Alignment:** By collapsing 10+ regional statuses into a unified lifecycle, the data model supports cross-market benchmarking for Tesla's global sales forecasting.
+* **Integrity Handling:** Implemented `Undisclosed` obfuscation for US-based developers to maintain data compliance while preserving the ability to count market participation frequency.
+
 ## 📈 Tableau Dashboard Features
 The resulting staging files are unioned natively in Tableau to feed an executive-level dashboard:
 * **Dynamic Scenario Modeling:** Includes a custom parameter allowing users to stress-test CAISO energy capacity (MWh) based on variable grid duration assumptions (e.g., 2-hour vs. 4-hour systems).
